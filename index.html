@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Shop</title>
+<style>
+    body { 
+        font-family: Arial; 
+        margin:0; 
+        padding:0; 
+        background: linear-gradient(to bottom, #ffcc66, #ff6699); 
+    }
+    h1 { text-align:center; color:#fff; padding:20px 0; }
+    .products { display:flex; flex-wrap:wrap; justify-content:center; padding:10px; }
+    .product { 
+        background:#fff; 
+        padding:15px; 
+        margin:10px; 
+        border-radius:10px; 
+        text-align:center; 
+        width:45%; 
+        box-shadow:0 5px 15px rgba(0,0,0,0.3); 
+        transition: transform 0.3s; 
+    }
+    .product:hover { transform: scale(1.05); }
+    img { width:100%; border-radius:10px; height:200px; object-fit:cover; }
+    .btn { display:block; background:purple; color:#fff; padding:12px; margin-top:10px; text-decoration:none; border-radius:8px; font-size:18px; }
+    p { font-size:16px; }
+</style>
+</head>
+<body>
+
+<h1>My Shop</h1>
+
+<div class="products">
+
+    <div class="product">
+        <img src="https://i.postimg.cc/0QNpF8pv/product.jpg" alt="Stylish Jacket">
+        <h2>Stylish Jacket</h2>
+        <p>Price: <b>₹99</b></p>
+        <a href="checkout.html?product=Stylish Jacket&price=99" class="btn">BUY NOW</a>
+    </div>
+
+    <div class="product">
+        <img src="https://i.postimg.cc/3R7WqR0y/shoes.jpg" alt="Cool Shoes">
+        <h2>Cool Shoes</h2>
+        <p>Price: <b>₹99</b></p>
+        <a href="checkout.html?product=Cool Shoes&price=99" class="btn">BUY NOW</a>
+    </div>
+
+    <div class="product">
+        <img src="https://i.postimg.cc/X7Cz2Y0t/watch.jpg" alt="Smart Watch">
+        <h2>Smart Watch</h2>
+        <p>Price: <b>₹99</b></p>
+        <a href="checkout.html?product=Smart Watch&price=99" class="btn">BUY NOW</a>
+    </div>
+
+    <div class="product">
+        <img src="https://i.postimg.cc/Hn8gFqfD/bag.jpg" alt="Leather Bag">
+        <h2>Leather Bag</h2>
+        <p>Price: <b>₹99</b></p>
+        <a href="checkout.html?product=Leather Bag&price=99" class="btn">BUY NOW</a>
+    </div>
+
+</div>
+
+</body>
+</html>

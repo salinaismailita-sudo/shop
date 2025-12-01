@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout</title>
+<style>
+    body { font-family: Arial; padding:20px; background:#fff8e1; text-align:center; }
+    h1 { color:#ff6699; }
+    #productInfo { font-size:18px; margin:20px 0; }
+    .btn { display:inline-block; background:green; color:#fff; padding:12px 20px; margin-top:20px; text-decoration:none; border-radius:8px; font-size:18px; }
+</style>
+</head>
+<body>
+
+<h1>Checkout Page</h1>
+<div id="productInfo"></div>
+
+<!-- UPI Button -->
+<a id="upiBtn" href="#" class="btn">Pay via UPI</a>
+
+<script>
+// Get product & price from URL
+const params = new URLSearchParams(window.location.search);
+let product = params.get('product') || "Stylish Jacket";
+let price = params.get('price') || "99";
+
+document.getElementById('productInfo').innerHTML = `
+<p>Product: <b>${product}</b></p>
+<p>Price: <b>₹${price}</b></p>
+`;
+
+// Your UPI ID
+let upiID = "ankitsharmag067@okicici"; 
+
+document.getElementById('upiBtn').href = `upi://pay?pa=${upiID}&pn=MyShop&am=${price}&cu=INR`;
+</script>
+
+</body>
+</html>

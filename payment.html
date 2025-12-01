@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment</title>
+<style>
+    body { font-family: Arial; padding:20px; background:#d4edda; text-align:center; }
+    h1 { color:green; }
+    #paymentInfo { font-size:18px; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<h1>Payment Successful ✅</h1>
+<div id="paymentInfo"></div>
+
+<script>
+// Get product & price from URL
+const params = new URLSearchParams(window.location.search);
+let product = params.get('product') || "Stylish Jacket";
+let price = params.get('price') || "99";
+
+document.getElementById('paymentInfo').innerHTML = `
+<p>Thank you for purchasing <b>${product}</b></p>
+<p>Amount Paid: <b>₹${price}</b></p>
+`;
+</script>
+
+</body>
+</html>
