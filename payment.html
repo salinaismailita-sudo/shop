@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Successful</title>
+    <title>Payment Page</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
@@ -11,36 +11,65 @@
         body {
             font-family: Arial;
             padding: 20px;
-            background: #d4edda;
+            background: #f2f2f2;
             text-align: center;
         }
         #qr {
             margin-top: 20px;
         }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 12px 20px;
+            background: #007bff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
 
-<h1>Payment Successful ✅</h1>
+<h2>Complete Your Payment</h2>
 
-<p id="paymentInfo"></p>
+<p><b>Amount:</b> ₹<span id="amount">99</span></p>
 
-<h3>Or Scan to Pay Again</h3>
-<canvas id="qr"></canvas>
+<div class="box">
+    <h3>Pay Using UPI</h3>
+    <p><b>UPI ID:</b> indubawa24@okicici</p>
+
+    <canvas id="qr"></canvas>
+
+    <a id="payBtn" class="btn">PAY NOW</a>
+</div>
 
 <script>
+    // Get product price from URL if available
     const params = new URLSearchParams(window.location.search);
-    let product = params.get('product') || "Product";
     let price = params.get('price') || "99";
 
-    document.getElementById("paymentInfo").innerHTML =
-        `Thank you for purchasing <b>${product}</b><br>
-         Amount Paid: <b>₹${price}</b>`;
+    document.getElementById("amount").innerText = price;
 
+    // Your UPI ID
     let upiID = "indubawa24@okicici";
-    let upiURL = `upi://pay?pa=${upiID}&pn=MeeshoSale&am=${price}&cu=INR`;
 
-    let qr = new QRious({
+    // Direct UPI deep link
+    let upiURL = `upi://pay?pa=${upiID}&pn=Payment&am=${price}&cu=INR`;
+
+    // Set UPI link to button
+    document.getElementById("payBtn").href = upiURL;
+
+    // Generate QR
+    new QRious({
         element: document.getElementById("qr"),
         value: upiURL,
         size: 220
