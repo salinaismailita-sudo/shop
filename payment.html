@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Payment</title>
-<style>
-    body { font-family: Arial; padding:20px; background:#d4edda; text-align:center; }
-    h1 { color:green; }
-    #paymentInfo { font-size:18px; margin-top:20px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: #d4edda;
+            text-align: center;
+        }
+        #qr {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
 <h1>Payment Successful ✅</h1>
-<div id="paymentInfo"></div>
+
+<p id="paymentInfo"></p>
+
+<h3>Or Scan to Pay Again</h3>
+<canvas id="qr"></canvas>
 
 <script>
-// Get product & price from URL
-const params = new URLSearchParams(window.location.search);
-let product = params.get('product') || "Stylish Jacket";
-let price = params.get('price') || "99";
+    const params = new URLSearchParams(window.location.search);
+    let product = params.get('product') || "Product";
+    let price = params.get('price') || "99";
 
-document.getElementById('paymentInfo').innerHTML = `
-<p>Thank you for purchasing <b>${product}</b></p>
-<p>Amount Paid: <b>₹${price}</b></p>
-`;
+    document.getElementById("paymentInfo").innerHTML =
+        `Thank you for purchasing <b>${product}</b><br>
+         Amount Paid: <b>₹${price}</b>`;
+
+    let upiID = "indubawa24@okicici";
+    let upiURL = `upi://pay?pa=${upiID}&pn=MeeshoSale&am=${price}&cu=INR`;
+
+    let qr = new QRious({
+        element: document.getElementById("qr"),
+        value: upiURL,
+        size: 220
+    });
 </script>
 
 </body>

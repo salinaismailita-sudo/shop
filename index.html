@@ -1,69 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Shop</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meesho Sale Christmas 2025</title>
+
 <style>
-    body { 
-        font-family: Arial; 
-        margin:0; 
-        padding:0; 
-        background: linear-gradient(to bottom, #ffcc66, #ff6699); 
+    body {
+        margin:0;
+        padding:0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg,#ff4da6,#ffcc00);
     }
-    h1 { text-align:center; color:#fff; padding:20px 0; }
-    .products { display:flex; flex-wrap:wrap; justify-content:center; padding:10px; }
-    .product { 
-        background:#fff; 
-        padding:15px; 
-        margin:10px; 
-        border-radius:10px; 
-        text-align:center; 
-        width:45%; 
-        box-shadow:0 5px 15px rgba(0,0,0,0.3); 
-        transition: transform 0.3s; 
+
+    h1{
+        text-align:center;
+        color:#fff;
+        padding:20px 0;
+        font-size:28px;
+        text-shadow:0 2px 5px rgba(0,0,0,0.3);
+        font-weight:bold;
     }
-    .product:hover { transform: scale(1.05); }
-    img { width:100%; border-radius:10px; height:200px; object-fit:cover; }
-    .btn { display:block; background:purple; color:#fff; padding:12px; margin-top:10px; text-decoration:none; border-radius:8px; font-size:18px; }
-    p { font-size:16px; }
+
+    .products{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+        padding:15px;
+    }
+
+    .product{
+        background:#fff;
+        width:92%;
+        border-radius:12px;
+        padding:15px;
+        box-shadow:0 5px 20px rgba(0,0,0,0.20);
+    }
+
+    .slider{
+        position:relative;
+        width:100%;
+        height:240px;
+        overflow:hidden;
+        border-radius:12px;
+    }
+
+    .slides{
+        width:100%;
+        height:100%;
+        display:flex;
+        transition:0.5s ease;
+    }
+
+    .slides img{
+        width:100%;
+        height:240px;
+        object-fit:cover;
+        border-radius:12px;
+    }
+
+    .dots{
+        text-align:center;
+        margin-top:8px;
+    }
+
+    .dot{
+        height:10px;
+        width:10px;
+        margin:0 3px;
+        background:#bbb;
+        display:inline-block;
+        border-radius:50%;
+        transition:0.3s;
+    }
+    .active{ background:#ff007f; }
+
+    h2{ margin-top:10px; font-size:20px; }
+    p{ margin:5px 0; }
+
+    .btn{
+        display:block;
+        margin-top:10px;
+        padding:12px;
+        background:#ff007f;
+        color:white;
+        text-align:center;
+        border-radius:8px;
+        text-decoration:none;
+        font-size:18px;
+        font-weight:bold;
+    }
 </style>
 </head>
 <body>
 
-<h1>My Shop</h1>
+<h1>Meesho Sale Christmas 2025 🎄</h1>
 
 <div class="products">
 
+    <!-- Jacket -->
     <div class="product">
-        <img src="https://i.postimg.cc/0QNpF8pv/product.jpg" alt="Stylish Jacket">
+        <div class="slider" id="slider1">
+            <div class="slides">
+                <img src="https://i.ibb.co/sdd6xpR2/tjlzt-Ga-F-822d160dea33450c94a27cc17dfdaf4c.jpg">
+            </div>
+        </div>
         <h2>Stylish Jacket</h2>
         <p>Price: <b>₹99</b></p>
-        <a href="checkout.html?product=Stylish Jacket&price=99" class="btn">BUY NOW</a>
+        <a class="btn" href="checkout.html?product=Stylish Jacket&price=99">BUY NOW</a>
     </div>
 
+
+    <!-- Shoes -->
     <div class="product">
-        <img src="https://i.postimg.cc/3R7WqR0y/shoes.jpg" alt="Cool Shoes">
+        <div class="slider" id="slider2">
+            <div class="slides">
+                <img src="https://i.ibb.co/9mfXP33v/zoom-0-1709229910.jpg">
+                <img src="https://i.ibb.co/Mx0C1Q63/zoom-2-1709229910.jpg">
+                <img src="https://i.ibb.co/bRQ0PJJm/zoom-3-1709229910.jpg">
+                <img src="https://i.ibb.co/jPBg44XW/zoom-4-1709229910.jpg">
+            </div>
+        </div>
         <h2>Cool Shoes</h2>
         <p>Price: <b>₹99</b></p>
-        <a href="checkout.html?product=Cool Shoes&price=99" class="btn">BUY NOW</a>
+        <a class="btn" href="checkout.html?product=Cool Shoes&price=99">BUY NOW</a>
     </div>
 
+
+    <!-- Smart Watch -->
     <div class="product">
-        <img src="https://i.postimg.cc/X7Cz2Y0t/watch.jpg" alt="Smart Watch">
+        <div class="slider" id="slider3">
+            <div class="slides">
+                <img src="https://i.ibb.co/r2ByQrsz/61q-89-CDU4-L-AC-UF1000-1000-QL80-FMwebp.webp">
+                <img src="https://i.ibb.co/Lzj920tB/71ey-R9jfk-FL-AC-UF1000-1000-QL80-FMwebp.webp">
+                <img src="https://i.ibb.co/3mhxJXmD/61g-Qg0-QWFl-L-AC-UF1000-1000-QL80-FMwebp.webp">
+                <img src="https://i.ibb.co/Lzj920tB/71ey-R9jfk-FL-AC-UF1000-1000-QL80-FMwebp.webp">
+            </div>
+        </div>
         <h2>Smart Watch</h2>
         <p>Price: <b>₹99</b></p>
-        <a href="checkout.html?product=Smart Watch&price=99" class="btn">BUY NOW</a>
+        <a class="btn" href="checkout.html?product=Smart Watch&price=99">BUY NOW</a>
     </div>
 
+
+    <!-- Leather Bag -->
     <div class="product">
-        <img src="https://i.postimg.cc/Hn8gFqfD/bag.jpg" alt="Leather Bag">
+        <div class="slider" id="slider4">
+            <div class="slides">
+                <img src="https://i.ibb.co/jPdzbM21/81-Krjb97g-FL-AC-UY1100-FMwebp.webp">
+                <img src="https://i.ibb.co/gb4kC2xc/61-J62ob-Dm3-L-AC-UY1100-FMwebp.webp">
+                <img src="https://i.ibb.co/cR9ZtvR/81qh40q6-Yc-L-AC-UY1100-FMwebp.webp">
+            </div>
+        </div>
         <h2>Leather Bag</h2>
         <p>Price: <b>₹99</b></p>
-        <a href="checkout.html?product=Leather Bag&price=99" class="btn">BUY NOW</a>
+        <a class="btn" href="checkout.html?product=Leather Bag&price=99">BUY NOW</a>
     </div>
 
 </div>
+
+
+<script>
+function makeSlider(id){
+    let slider = document.querySelector(id + " .slides");
+    let images = slider.children;
+    let index = 0;
+
+    setInterval(()=>{
+        index = (index + 1) % images.length;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }, 2500);
+}
+
+makeSlider("#slider1");
+makeSlider("#slider2");
+makeSlider("#slider3");
+makeSlider("#slider4");
+</script>
 
 </body>
 </html>

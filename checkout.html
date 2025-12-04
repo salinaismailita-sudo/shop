@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
-<style>
-    body { font-family: Arial; padding:20px; background:#fff8e1; text-align:center; }
-    h1 { color:#ff6699; }
-    #productInfo { font-size:18px; margin:20px 0; }
-    .btn { display:inline-block; background:green; color:#fff; padding:12px 20px; margin-top:20px; text-decoration:none; border-radius:8px; font-size:18px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Checkout Page</h1>
-<div id="productInfo"></div>
+<div class="container">
+    <h2>Checkout</h2>
 
-<!-- UPI Button -->
-<a id="upiBtn" href="#" class="btn">Pay via UPI</a>
+    <p><b>Product:</b> <span id="productName"></span></p>
+    <p><b>Amount:</b> ₹<span id="amount"></span></p>
+
+    <h3>Shipping Details</h3>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="mobile" placeholder="Mobile Number">
+    <input type="text" id="address" placeholder="Full Address">
+    <input type="text" id="pincode" placeholder="Pincode">
+
+    <button class="btn" id="payBtn">Pay Now</button>
+</div>
 
 <script>
-// Get product & price from URL
-const params = new URLSearchParams(window.location.search);
-let product = params.get('product') || "Stylish Jacket";
-let price = params.get('price') || "99";
+    const params = new URLSearchParams(window.location.search);
+    let product = params.get('product') || "Product";
+    let price = params.get('price') || "99";
 
-document.getElementById('productInfo').innerHTML = `
-<p>Product: <b>${product}</b></p>
-<p>Price: <b>₹${price}</b></p>
-`;
+    document.getElementById("productName").innerText = product;
+    document.getElementById("amount").innerText = price;
 
-// Your UPI ID
-let upiID = "ankitsharmag067@okicici"; 
+    let upiID = "indubawa24@okicici";
+    let upiURL = `upi://pay?pa=${upiID}&pn=MeeshoSale&am=${price}&cu=INR`;
 
-document.getElementById('upiBtn').href = `upi://pay?pa=${upiID}&pn=MyShop&am=${price}&cu=INR`;
+    document.getElementById("payBtn").onclick = function () {
+        window.location.href = upiURL;
+
+        setTimeout(() => {
+            window.location.href = `payment.html?product=${product}&price=${price}`;
+        }, 1500);
+    };
 </script>
 
 </body>
